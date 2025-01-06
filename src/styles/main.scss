@@ -1,0 +1,20 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: rgb(20, 18, 18);
+}
+
+main{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 1440px;
+  max-width: 1440px
+}
+
+@import '../pages/Acceuil/Acceuil.scss';

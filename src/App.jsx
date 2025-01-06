@@ -1,9 +1,10 @@
-import './App.css'
+import './styles/main.scss';
+import Acceuil from './pages/Acceuil/Acceuil.jsx'
 
 function App() {
   return (
-    <div>
-      <h1>SportSee</h1>
+    <div> 
+      <Acceuil/>
     </div>
   )
 }
