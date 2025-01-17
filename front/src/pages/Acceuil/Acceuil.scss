@@ -1,6 +1,7 @@
 .acceuil-container{
   margin-top: 50px;
   width: 85%;
+
   h1{
   margin: 0;
    font-size: 48px;
@@ -20,4 +21,40 @@
   }
 }
 
+.data-container{
+  margin-top: 40px;
+  width: 96%;
+  display: flex;
 
+}
+
+.left-column{
+  width: 82%;
+  width: 100%;
+  height: 630px;
+}
+
+.activity-container{
+  width: 96%;
+}
+
+.radars{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  width: 107%;
+}
+
+.container1,
+.container2,
+.container3{
+  width: 260px;
+  height: 260px;
+  border: 1px solid black;
+}
+
+.right-column{
+  width: 80%;
+  height: 592px;
+  margin-left: 100px;
+}
