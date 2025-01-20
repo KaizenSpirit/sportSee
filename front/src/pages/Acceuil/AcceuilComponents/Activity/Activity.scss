@@ -1,9 +1,35 @@
 .activity {
-  background-color: #e9e7e7;
+  background-color: rgba(251, 251, 251, 1);
+  padding: 50px 20px 0px 20px;
   position: relative;
-  border: 1px solid black;
-  height: 300px;
-  width: 111%;
+  height: 220px;
+  padding-top: 100px;
 }
 
+.activity h3 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: black;
+}
 
+.custom-tooltip-activity {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+  height: 63px;
+  width: 39px;
+  font-size: 7px;
+}
+
+.custom-tooltip-activity p {
+margin: 15px auto;
+}
+
+.text-color {
+  color: rgba(116, 121, 140, 1);
+}
