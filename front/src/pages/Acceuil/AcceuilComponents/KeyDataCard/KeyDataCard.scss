@@ -6,7 +6,21 @@
   padding: 20px;
   margin-bottom: 20px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  height: 90px;
-  width: 240px;
-  border: 1px solid black;
+
+  .key-data-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+  }
+
+  .key-data-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #282d30;
+  }
+
+  .key-data-label {
+    font-size: 14px;
+    color: #74798c;
+  }
 }

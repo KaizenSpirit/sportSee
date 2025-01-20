@@ -5,6 +5,10 @@ import Activity from './AcceuilComponents/Activity/Activity.jsx'
 import KeyDataCard from "./AcceuilComponents/KeyDataCard/KeyDataCard.jsx";
 import "../../styles/main.scss";
 import congrats from "../../public/congrats.png";
+import calorieIcon from "../../public/icons/calories-icon.png";
+import proteinIcon from "../../public/icons/protein-icon.png";
+import carbohydrateIcon from "../../public/icons/carbs-icon.png";
+import lipidIcon from "../../public/icons/fat-icon.png";
 
 const Accueil = () => {
   const { id } = useParams();
@@ -32,11 +36,14 @@ const Accueil = () => {
     return <h1>Chargement des données...</h1>;
   }
 
+  const { calorieCount, proteinCount, carbohydrateCount, lipidCount } =
+  userData.data.keyData;
+
   const keyDataItems = [
-    {  },
-    {  },
-    {  },
-    { }
+    { icon: calorieIcon, value: calorieCount, unit: "kCal", label: "Calories" },
+    { icon: proteinIcon, value: proteinCount, unit: "g", label: "Protéines" },
+    { icon: carbohydrateIcon, value: carbohydrateCount, unit: "g", label: "Glucides" },
+    { icon: lipidIcon, value: lipidCount, unit: "g", label: "Lipides" }
   ];
 
   return (
@@ -64,6 +71,10 @@ const Accueil = () => {
           {keyDataItems.map((item, index) => (
             <KeyDataCard
               key={index}
+              icon={item.icon}
+              value={item.value}
+              unit={item.unit}
+              label={item.label}
             />
           ))}
         </div>
