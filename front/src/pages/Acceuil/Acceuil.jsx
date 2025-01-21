@@ -4,10 +4,10 @@ import { fetchUser } from "../../../Api/Api";
 import Activity from './AcceuilComponents/Activity/Activity.jsx'
 import KeyDataCard from "./AcceuilComponents/KeyDataCard/KeyDataCard.jsx";
 import "../../styles/main.scss";
-import congrats from "../../public/congrats.png";
 import ScoreChart from "./AcceuilComponents/ScoreChart/ScoreChart.jsx";
 import RadarChart from './AcceuilComponents/RadarChart/RadarChart.jsx';
 import SessionDuration from "./AcceuilComponents/SessionDuration/SessionDuration.jsx";
+import Bienvenue from "./AcceuilComponents/Bienvenue/Bienvenue.jsx";
 
 const Accueil = () => {
   const { id } = useParams();
@@ -38,12 +38,7 @@ const Accueil = () => {
   return (
     <div className="acceuil-container">
       <section className="Bienvenue">
-        <h1>
-          Bonjour <span className="first-name">{userData.data.userInfos.firstName}</span>
-        </h1>
-        <h2>
-          <img src={congrats} alt="Félicitations" />
-        </h2>
+      <Bienvenue firstName={userData.data.userInfos.firstName} />
       </section>
       <section className="data-container">
         <div className="left-column">
