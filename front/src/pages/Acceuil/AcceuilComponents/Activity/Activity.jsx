@@ -16,7 +16,7 @@ function UserActivity() {
         <h3>Activité quotidienne</h3>
       <ResponsiveContainer width={880} height={200}>
         <BarChart data={data.sessions} barGap={8}>
-          <CartesianGrid strokeDasharray="3 3" vertical={false} />
+          <CartesianGrid strokeDasharray="2 2" vertical={false} />
           <XAxis dataKey="day" tickLine={false} axisLine={false} tickFormatter={(day, index) => index + 1} />
           <YAxis
             yAxisId="right"

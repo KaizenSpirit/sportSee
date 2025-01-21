@@ -4,6 +4,8 @@
   position: relative;
   height: 220px;
   padding-top: 100px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 .activity h3 {
@@ -11,25 +13,43 @@
   top: 20px;
   left: 20px;
   font-size: 15px;
-  font-weight: 500;
-  color: black;
+  font-weight: 600;
+  color: #20253A;
 }
 
 .custom-tooltip-activity {
   background-color: red;
-  color: white;
+  color:#FFFFFF;
   padding: 10px;
-  border-radius: 5px;
-  position: relative;
-  height: 63px;
+  margin: 0px 0px 60px 10px;
   width: 39px;
-  font-size: 7px;
+  height: 63px;
+  border-radius: 0px;
 }
-
-.custom-tooltip-activity p {
-margin: 15px auto;
+.custom-tooltip-activity p{
+  margin-left: 10px;
+  font-weight: 700;
+  font-size: 12px;
+  margin: 10px auto;
+  margin-bottom: 15px;
 }
 
 .text-color {
   color: rgba(116, 121, 140, 1);
+}
+
+.recharts-rectangle{
+  width: 30px;
+}
+
+.recharts-legend-item-text{
+  margin-right: 20px;
+}
+
+.recharts-tooltip-wrapper-top{
+  width: 10px;
+}
+
+.recharts-tooltip-wrapper-top{
+  width: 20px;
 }

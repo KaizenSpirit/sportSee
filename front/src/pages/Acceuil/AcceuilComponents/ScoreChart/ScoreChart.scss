@@ -1,0 +1,36 @@
+.score-chart {
+  position: relative;
+  background-color: #fbfbfb;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-chart h3 {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #74798c;
+}
+
+.score-center {
+  position: absolute;
+  text-align: center;
+}
+
+.score-center span {
+  font-size: 24px;
+  font-weight: bold;
+  color: #282d30;
+}
+
+.score-center p {
+  font-size: 14px;
+  color: #74798c;
+}
+

@@ -5,6 +5,7 @@ import Activity from './AcceuilComponents/Activity/Activity.jsx'
 import KeyDataCard from "./AcceuilComponents/KeyDataCard/KeyDataCard.jsx";
 import "../../styles/main.scss";
 import congrats from "../../public/congrats.png";
+import ScoreChart from "./AcceuilComponents/ScoreChart/ScoreChart.jsx";
 
 const Accueil = () => {
   const { id } = useParams();
@@ -50,7 +51,9 @@ const Accueil = () => {
           <div className="radars">
             <div className="container1"></div>
             <div className="container2"></div>
-            <div className="container3"></div>
+            <div className="container3">
+              <ScoreChart/>
+            </div>
           </div>
         </div>
         <div className="right-column">
