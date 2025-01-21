@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export const CustomTooltipActivity = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
@@ -7,6 +9,14 @@ export const CustomTooltipActivity = ({ active, payload }) => {
       </div>
     );
   }
-  return null; // Si aucun élément n'est actif ou que les données sont absentes, ne rien afficher
+  return null;
 };
 
+CustomTooltipActivity.propTypes = {
+  active: PropTypes.bool.isRequired, 
+  payload: PropTypes.arrayOf(       
+    PropTypes.shape({               
+      value: PropTypes.number.isRequired, 
+    })
+  ),
+};
