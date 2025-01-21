@@ -1,10 +1,26 @@
+import { useParams } from "react-router-dom";
+import useFetchData from "../../../../../Api/hooks/UseFetchData.jsx";
+import { fetchUser } from "../../../../../Api/Api.jsx";
 import PropTypes from "prop-types";
 import calorieIcon from "../../../../public/icons/calories-icon.png";
 import proteinIcon from "../../../../public/icons/protein-icon.png";
 import carbohydrateIcon from "../../../../public/icons/carbs-icon.png";
 import lipidIcon from "../../../../public/icons/fat-icon.png";
 
-function KeyDataCard({ keyData }) {
+function KeyDataCard() {
+  const { id } = useParams(); 
+  const { data, error, loading } = useFetchData(fetchUser, id); 
+
+  if (error) {
+    return <h1>{error}</h1>; 
+  }
+
+  if (loading) {
+    return <h1>Chargement des données...</h1>; 
+  }
+
+  const keyData = data.keyData; 
+
   const keyDataItems = [
     { icon: calorieIcon, value: keyData.calorieCount, unit: "kCal", label: "Calories" },
     { icon: proteinIcon, value: keyData.proteinCount, unit: "g", label: "Protéines" },

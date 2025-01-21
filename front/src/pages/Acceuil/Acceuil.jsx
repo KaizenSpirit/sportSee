@@ -1,6 +1,3 @@
-import { useParams} from "react-router-dom";
-import useFetchData from "../../../Api/hooks/UseFetchData";
-import { fetchUser } from "../../../Api/Api";
 import Activity from './AcceuilComponents/Activity/Activity.jsx'
 import KeyDataCard from "./AcceuilComponents/KeyDataCard/KeyDataCard.jsx";
 import "../../styles/main.scss";
@@ -10,21 +7,10 @@ import SessionDuration from "./AcceuilComponents/SessionDuration/SessionDuration
 import Bienvenue from "./AcceuilComponents/Bienvenue/Bienvenue.jsx";
 
 const Accueil = () => {
-  const { id } = useParams();
-  const { data: userData, error, loading } = useFetchData(fetchUser, id);
-
-  if (error) {
-    return <h1>{error}</h1>;
-  }
-
-  if (loading || !userData) {
-    return <h1>Chargement des données...</h1>;
-  }
-
   return (
     <div className="acceuil-container">
       <section className="Bienvenue">
-      <Bienvenue firstName={userData.userInfos.firstName} />
+      <Bienvenue />
       </section>
       <section className="data-container">
         <div className="left-column">
@@ -44,7 +30,7 @@ const Accueil = () => {
           </div>
         </div>
         <div className="right-column">
-        <KeyDataCard keyData={userData.keyData} />
+        <KeyDataCard />
         </div>
       </section>
     </div>

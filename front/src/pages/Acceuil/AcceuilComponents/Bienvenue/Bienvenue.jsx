@@ -1,8 +1,23 @@
 import PropTypes from "prop-types";
-// import congrats from "../../public/congrats.png";
+import { useParams } from "react-router-dom";
+import useFetchData from "../../../../../Api/hooks/UseFetchData.jsx";
+import { fetchUser } from "../../../../../Api/Api.jsx";
 import congrats from "../../../../public/congrats.png";
 
-const Bienvenue = ({ firstName }) => {
+function Bienvenue() {
+  const { id } = useParams();
+  const { data, error, loading } = useFetchData(fetchUser, id); 
+
+  if (error) {
+    return <h1>{error}</h1>; 
+  }
+
+  if (loading) {
+    return <h1>Chargement des données...</h1>; 
+  }
+
+  const firstName = data.userInfos.firstName; 
+
   return (
     <section className="Bienvenue">
       <h1>
