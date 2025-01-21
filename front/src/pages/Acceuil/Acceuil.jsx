@@ -1,5 +1,5 @@
 import { useParams} from "react-router-dom";
-import { useState, useEffect } from "react";
+import useFetchData from "../../../Api/hooks/UseFetchData";
 import { fetchUser } from "../../../Api/Api";
 import Activity from './AcceuilComponents/Activity/Activity.jsx'
 import KeyDataCard from "./AcceuilComponents/KeyDataCard/KeyDataCard.jsx";
@@ -11,34 +11,20 @@ import Bienvenue from "./AcceuilComponents/Bienvenue/Bienvenue.jsx";
 
 const Accueil = () => {
   const { id } = useParams();
-  const [userData, setUserData] = useState(null);
-  const [error, setError] = useState(null);
-
-  // Récupération des données utilisateur
-  useEffect(() => {
-    const getUserData = async () => {
-      try {
-        const data = await fetchUser(id);
-        setUserData(data);
-      } catch (err) {
-        setError(err.message);
-      }
-    };
-    getUserData();
-  }, [id]);
+  const { data: userData, error, loading } = useFetchData(fetchUser, id);
 
   if (error) {
     return <h1>{error}</h1>;
   }
 
-  if (!userData) {
+  if (loading || !userData) {
     return <h1>Chargement des données...</h1>;
   }
 
   return (
     <div className="acceuil-container">
       <section className="Bienvenue">
-      <Bienvenue firstName={userData.data.userInfos.firstName} />
+      <Bienvenue firstName={userData.userInfos.firstName} />
       </section>
       <section className="data-container">
         <div className="left-column">
@@ -58,7 +44,7 @@ const Accueil = () => {
           </div>
         </div>
         <div className="right-column">
-        <KeyDataCard keyData={userData.data.keyData} />
+        <KeyDataCard keyData={userData.keyData} />
         </div>
       </section>
     </div>
