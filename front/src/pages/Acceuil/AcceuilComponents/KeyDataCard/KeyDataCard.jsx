@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import calorieIcon from "../../../../public/icons/calories-icon.png";
 import proteinIcon from "../../../../public/icons/protein-icon.png";
 import carbohydrateIcon from "../../../../public/icons/carbs-icon.png";
@@ -29,5 +30,14 @@ function KeyDataCard({ keyData }) {
   );
 }
 
+// Validation des props avec PropTypes
+KeyDataCard.propTypes = {
+  keyData: PropTypes.shape({
+    calorieCount: PropTypes.number.isRequired,
+    proteinCount: PropTypes.number.isRequired,
+    carbohydrateCount: PropTypes.number.isRequired,
+    lipidCount: PropTypes.number.isRequired,
+  }).isRequired,
+};
 
 export default KeyDataCard;

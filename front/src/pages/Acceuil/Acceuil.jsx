@@ -7,6 +7,7 @@ import "../../styles/main.scss";
 import congrats from "../../public/congrats.png";
 import ScoreChart from "./AcceuilComponents/ScoreChart/ScoreChart.jsx";
 import RadarChart from './AcceuilComponents/RadarChart/RadarChart.jsx';
+import SessionDuration from "./AcceuilComponents/SessionDuration/SessionDuration.jsx";
 
 const Accueil = () => {
   const { id } = useParams();
@@ -50,11 +51,13 @@ const Accueil = () => {
           <Activity/>
           </div>
           <div className="radars">
-            <div className="container1"></div>
-            <div className="container2">
+            <div className=" containers container1">
+              <SessionDuration/>
+            </div>
+            <div className=" containers container2">
               <RadarChart/>
             </div>
-            <div className="container3">
+            <div className=" containers container3">
               <ScoreChart/>
             </div>
           </div>
