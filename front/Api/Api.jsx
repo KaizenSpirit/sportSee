@@ -1,7 +1,14 @@
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from "../src/mocks/mockData.jsx";
 
 const BASE_URL = 'http://localhost:3000';
-const useMockData = false; 
+const useMockData = true; 
+
+const dataMap = {
+  "": USER_MAIN_DATA,
+  "/activity": USER_ACTIVITY,
+  "/average-sessions": USER_AVERAGE_SESSIONS,
+  "/performance": USER_PERFORMANCE
+};
 
 // Fonction générique pour gérer les mocks
 const fetchMockData = async (data) => {
@@ -11,41 +18,22 @@ const fetchMockData = async (data) => {
 };
 
 const fetchData = async (endpoint, id) => {
-  if (useMockData) {
-    console.log(`Fetching data from mock for endpoint: ${endpoint}, id: ${id}`);
-    switch (endpoint) {
-      case "": {
-        const user = USER_MAIN_DATA.find((user) => user.id === Number(id));
-        if (!user) throw new Error("User not found");
-        return fetchMockData(user);
-      }
-      case "/activity": {
-        const activity = USER_ACTIVITY.find((item) => item.userId === Number(id));
-        if (!activity) throw new Error("Activity not found");
-        return fetchMockData(activity);
-      }
-      case "/average-sessions": {
-        const sessions = USER_AVERAGE_SESSIONS.find((item) => item.userId === Number(id));
-        if (!sessions) throw new Error("Average sessions not found");
-        return fetchMockData(sessions);
-      }
-      case "/performance": {
-        const performance = USER_PERFORMANCE.find((item) => item.userId === Number(id));
-        if (!performance) throw new Error("Performance data not found");
-        return fetchMockData(performance);
-      }
-      default: {
-        throw new Error("Invalid endpoint");
-      }
-    }
-  } else {
-    // Appel au backend
-    const response = await fetch(`${BASE_URL}/user/${id}${endpoint}`);
-    if (!response.ok) {
-      throw new Error(`Erreur lors de la récupération des données : ${response.statusText}`);
-    }
-    return await response.json();
-  }
+  const data = useMockData 
+    ? (() => {
+        const mappedData = dataMap[endpoint];
+        if (!mappedData) throw new Error("Invalid endpoint");
+        return mappedData.find((item) =>
+          (item.userId && item.userId === Number(id)) || 
+          (item.id && item.id === Number(id))
+        );
+      })() 
+    : await fetch(`${BASE_URL}/user/${id}${endpoint}`).then((res) => {
+        if (!res.ok) throw new Error(`Erreur : ${res.statusText}`);
+        return res.json();
+      });
+
+  if (!data) throw new Error("User not found");
+  return useMockData ? fetchMockData(data) : data;
 };
 
 // Spécific functions for each user data
