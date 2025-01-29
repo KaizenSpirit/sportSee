@@ -32,7 +32,7 @@ function Bienvenue() {
 
 // Validation des props avec PropTypes
 Bienvenue.propTypes = {
-  firstName: PropTypes.string.isRequired,
+  firstName: PropTypes.string
 };
 
 export default Bienvenue;

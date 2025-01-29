@@ -49,11 +49,11 @@ function KeyDataCard() {
 // Validation des props avec PropTypes
 KeyDataCard.propTypes = {
   keyData: PropTypes.shape({
-    calorieCount: PropTypes.number.isRequired,
-    proteinCount: PropTypes.number.isRequired,
-    carbohydrateCount: PropTypes.number.isRequired,
-    lipidCount: PropTypes.number.isRequired,
-  }).isRequired,
+    calorieCount: PropTypes.number,
+    proteinCount: PropTypes.number,
+    carbohydrateCount: PropTypes.number,
+    lipidCount: PropTypes.number,
+  })
 };
 
 export default KeyDataCard;
